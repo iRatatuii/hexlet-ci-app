@@ -1,0 +1,14 @@
+name: test
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      # экшен — выполняет какую-то задачу
+      # checkout — клонирует репозиторий
+      - uses: actions/checkout@v4
+      # run – произвольная bash-команда
+      # ls -la выведет содержимое текущего репозитория
+      - run: make setup
+      - run: make test
+      - run: make make lint
